@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- build:css css/main.css -->
+    <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+         crossorigin="anonymous"
+      />
+    <!-- endbuild -->
+
+    <title>Welcome to Cat Cocoa</title>
+</head>
+
+<body>
+      
+    <div class="container">
+      <div class="row row-content">
+          <h1 class="text-center">Contact Form</h1>      
+        
+            <div class="col-8 mx-auto">
+                <form method="post" action="/"">
+                    <div class="form-group row">
+                        <label for="firstName" class="col-md-2 col-form-label">Name:</label>
+                        <div class="col-5">
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First">
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last">
+                        </div>
+                    </div> 
+                    <div class="form-group row">   
+                        <label for="email" class="col-md-2 col-form-label">Email Address:</label>
+                        <div class="col-md-10">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>                       
+                    </div>
+                    <div class="form-group row"> 
+                     <div class="form-check offset-md-3">
+                        <input class="form-check-input" name="newsLetter" type="checkbox" value="yes" id="newsletterCheck">
+                        <label class="form-check-label" for="newsletterCheck">
+                         Check to receive a newsletter.
+                        </label>
+                    </div> 
+                    </div>
+                    
+
+                    <div class="form-group row">
+                        <label for="tel" class="col-md-2 col-form-label">Phone Number:</label>
+                        <div class="col-md-10">    
+                        <input type="tel" class="form-control" name="tel" id="tel" placeholder="Phone">
+                        </div>  
+                    </div> 
+                    
+                    <div class="form-group row"> 
+                        <label for="feedback" class="col-md-2 col-form-label">Your Feedback</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="feedback" name="feedback" rows="8"></textarea>
+                        </div>    
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3"></div>    
+                            <button type="submit" class="btn btn-primary">Send Feedback</button>
+                        </div>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
