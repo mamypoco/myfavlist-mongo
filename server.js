@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,37 +12,44 @@ mongoose.connect(
    { userUnifiedTopology: true }
 );
 
-//create data schema
-// const notesSchema = {
-//    title: String,
-//    content: String,
-// };
+const formSchema = new Schema(
+   {
+      firstName: {
+         type: String,
+         required: true,
+      },
 
-const formSchema = {
-   firstName: String,
-   lastName: String,
-   email: String,
-   newsLetter: Boolean,
-   tel: Number,
-   feedback: String,
-};
+      lastName: {
+         type: String,
+         required: true,
+      },
 
-// const Note = mongoose.model("Note", notesSchema);
+      email: {
+         type: String,
+         required: true,
+      },
+
+      newsLetter: {
+         type: Boolean,
+      },
+      tel: {
+         type: Number,
+      },
+      feedback: {
+         type: String,
+         required: true,
+      },
+   },
+   {
+      timestamps: true,
+   }
+);
 
 const Form = mongoose.model("Form", formSchema);
 
 app.get("/", function (req, res) {
    res.sendFile(__dirname + "/index.html");
 });
-
-// app.post("/", function (req, res) {
-//    let newNote = new Note({
-//       title: req.body.title,
-//       content: req.body.content,
-//    });
-//    newNote.save();
-//    res.redirect("/");
-// });
 
 app.post("/", function (req, res) {
    let newForm = new Form({
