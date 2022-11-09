@@ -7,33 +7,38 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(
-   "mongodb+srv://munchkin:zBphnmKEdK4iCArT@cluster0.iixkejd.mongodb.net/fakeDB",
+   "mongodb+srv://munchkin:zBphnmKEdK4iCArT@cluster0.iixkejd.mongodb.net/FavlistDB",
    { useNewUrlParser: true },
    { userUnifiedTopology: true }
 );
 
 const formSchema = new Schema(
    {
-      firstName: {
+      title: {
          type: String,
          required: true,
       },
 
-      lastName: {
+      type: {
          type: String,
          required: true,
       },
 
-      email: {
+      lang: {
          type: String,
          required: true,
       },
 
-      newsLetter: {
-         type: Boolean,
+      casts: {
+         type: String,
+         required: true,
       },
-      tel: {
-         type: Number,
+      medium: {
+         type: String,
+      },
+      rating: {
+         type: String,
+         required: true,
       },
       feedback: {
          type: String,
@@ -53,17 +58,18 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
    let newForm = new Form({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      newsLetter: req.body.newsLetter,
-      tel: req.body.tel,
+      title: req.body.title,
+      type: req.body.type,
+      lang: req.body.lang,
+      casts: req.body.casts,
+      medium: req.body.medium,
+      rating: req.body.rating,
       feedback: req.body.feedback,
    });
    newForm.save();
    res.redirect("/");
 });
 
-app.listen(4000, function () {
-   console.log("server is running on port 4000");
+app.listen(4001, function () {
+   console.log("server is running on port 4001");
 });
