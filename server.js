@@ -3,11 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bodyParser = require("body-parser");
+require("dotenv").config();
+const mongoURI = process.env.MONGO_CONNECTION;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(
-   "mongodb+srv://munchkin:<blank>@cluster0.iixkejd.mongodb.net/FavlistDB",
+   mongoURI,
    { useNewUrlParser: true },
    { userUnifiedTopology: true }
 );
@@ -67,8 +69,8 @@ app.post("/", function (req, res) {
       feedback: req.body.feedback,
    });
    newForm.save();
-   res.send("Data received:\n" + JSON.stringify(req.body));
-   res.redirect("/");
+   res.send("Data was sent successfully:\n" + JSON.stringify(req.body));
+   // res.redirect("/");
 });
 
 app.listen(4001, function () {
