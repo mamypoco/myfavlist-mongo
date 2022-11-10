@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(
-   "mongodb+srv://munchkin:zBphnmKEdK4iCArT@cluster0.iixkejd.mongodb.net/FavlistDB",
+   "mongodb+srv://munchkin:<blank>@cluster0.iixkejd.mongodb.net/FavlistDB",
    { useNewUrlParser: true },
    { userUnifiedTopology: true }
 );
@@ -67,6 +67,7 @@ app.post("/", function (req, res) {
       feedback: req.body.feedback,
    });
    newForm.save();
+   res.send("Data received:\n" + JSON.stringify(req.body));
    res.redirect("/");
 });
 
